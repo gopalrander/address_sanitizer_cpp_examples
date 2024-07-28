@@ -50,5 +50,6 @@ int main()
 // In the above example, member variables of Point::InitParams should be declared as:
 // const int m_x and const int m_y, respectively.
 // One might argue that for large objects, copy is not cheap. And that's true. 
+// Godbolt: https://godbolt.org/z/shbqMYW83
 // Let's discuss that in another example.
 */
