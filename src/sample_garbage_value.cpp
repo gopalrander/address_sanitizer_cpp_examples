@@ -1,30 +1,38 @@
 #include <iostream>
-struct SomeClass {
+struct Point {
 
     struct InitParams {
-        InitParams(int sv, int pd) :
-            m_sv(sv), m_partitionId(pd)
+        InitParams(int x, int y) :
+            m_x(x),
+            m_y(y)
         {};
 
-        const int& m_sv;
-        const int& m_partitionId;
+        const int& m_x;
+        const int& m_y;
     };
 
-    SomeClass(InitParams init) :
-        m_sequence_vector(init.m_sv),
-        m_partitionId(init.m_partitionId)
-    { };
+    Point(InitParams init) :
+        m_x(init.m_x),
+        m_y(init.m_y)
+    {};
 
-    int m_sequence_vector;
-    int m_partitionId;
+    int m_x;
+    int m_y;
 };
 
 int main()
 {
-    SomeClass::InitParams init(100, 100);
-    SomeClass obj = SomeClass(init);
+    int x = 100, y = 200;
+    Point::InitParams init(x, y);
+    Point obj = Point(init);
 
-    std::cout << obj.m_sequence_vector << std::endl;
+    std::cout << "Init Params"<<std::endl;
+    std::cout << "Expected:" << x << " Actual:" << init.m_x << std::endl;
+    std::cout << "Expected:" << y << " Actual:" << init.m_y << std::endl;
+
+    std::cout << "Object"<<std::endl;
+    std::cout << "Expected:" << x << " Actual:" << obj.m_x << std::endl;
+    std::cout << "Expected:" << y << " Actual:" << obj.m_y << std::endl;
 
     return 0;
 }
